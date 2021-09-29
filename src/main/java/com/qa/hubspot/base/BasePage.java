@@ -39,7 +39,7 @@ public class BasePage {
 	 * @param browser
 	 * @return driver
 	 */
-	public WebDriver init_driver(Properties prop) {
+	public WebDriver init_driver(Properties prop) throws InterruptedException {
 		String browser = prop.getProperty("browser");
 
 		if (browser.equals("chrome")) {
@@ -66,7 +66,7 @@ public class BasePage {
 		getDriver().manage().deleteAllCookies();
 		
 		getDriver().get(prop.getProperty("url"));
-		
+		Thread.sleep(5000);
 		return getDriver();
 	}
 
